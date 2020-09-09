@@ -1,0 +1,24 @@
+---
+title: "TurnOver v2"
+author: "Rafael Barbosa & Rodrigo Almeida"
+date: "06/04/2020"
+output: 
+  rmarkdown::github_document:
+    fig_width: 10
+    fig_height: 5
+  theme: cosmo
+---
+
+```{r pacotes_dados, warning = FALSE, message = FALSE}
+
+require(tidyverse)
+require(kabl)
+
+dados <- read.csv(file = "data/turnover-data-set.csv")
+
+dados %>% 
+  head %>% 
+  knitr::kable()
+
+```
+
