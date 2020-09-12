@@ -7,18 +7,20 @@ output:
     fig_width: 10
     fig_height: 5
   theme: cosmo
+always_allow_html: true
 ---
 
 ```{r pacotes_dados, warning = FALSE, message = FALSE}
 
 require(tidyverse)
-require(kabl)
+require(kableExtra)
 
 dados <- read.csv(file = "data/turnover-data-set.csv")
 
 dados %>% 
   head %>% 
-  knitr::kable()
+  kbl %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
 
 ```
 
