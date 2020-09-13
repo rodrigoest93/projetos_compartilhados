@@ -15,8 +15,8 @@ Yaktocat](https://www.nvoip.com.br/wp-content/uploads/2018/09/turnover_face.png)
 <p align="center">
 
 <img alt="decision_tree" src="images/r_and_rstudio.png" alt="drawing" width="400" height="200"/>
-<br> <em>
-<https://bcrf.biochem.wisc.edu/all-tutorials/tutorial-materials-r-rstudio/>
+<br> <em> <span>Disponível
+<a href="https://bcrf.biochem.wisc.edu/all-tutorials/tutorial-materials-r-rstudio/">aqui</a></span>
 </em>
 
 </p>

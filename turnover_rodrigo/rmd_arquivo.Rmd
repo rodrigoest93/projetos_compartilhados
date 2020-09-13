@@ -31,9 +31,12 @@ knitr::opts_chunk$set(fig.width = 8, fig.height = 4,
 
 <p align="center">
   <img alt="decision_tree" src="images/r_and_rstudio.png" alt="drawing" width="400" height="200"/>
-  <br>
-    <em> https://bcrf.biochem.wisc.edu/all-tutorials/tutorial-materials-r-rstudio/ </em>
+<br>
+<em> <span>Disponível <a href="https://bcrf.biochem.wisc.edu/all-tutorials/tutorial-materials-r-rstudio/">aqui</a></span> </em>
 </p>
+
+
+
 
 
 - Escrever algo aqui sobre o R e o Rstudio
