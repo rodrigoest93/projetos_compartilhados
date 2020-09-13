@@ -3,6 +3,8 @@ TurnOver v2
 Rafael Barbosa & Rodrigo Almeida
 06/04/2020
 
+# Pacotes do R
+
 ``` r
 require(tidyverse)
 require(kableExtra)
@@ -726,3 +728,5 @@ bus
 </tbody>
 
 </table>
+
+# Introdução ao TurnOver
