@@ -1,18 +1,16 @@
 ---
 title: "TurnOver v2"
-author: "Rafael Barbosa & Rodrigo Almeida"
+author: "**Autores:** Rodrigo Almeida & Rafael Barbosa | **Data:** "
 date: "06/04/2020"
 output: 
   rmarkdown::github_document:
   theme: united
   code_folding: hide
-  toc: true
-  toc_float:
-      collapsed: true
-      smooth_scroll: false
-  number_sections: true
 always_allow_html: true
 ---
+
+![Image of Yaktocat](https://www.nvoip.com.br/wp-content/uploads/2018/09/turnover_face.png)
+
 
 ```{r setup, include = FALSE}
 
@@ -22,22 +20,76 @@ knitr::opts_chunk$set(fig.width = 8, fig.height = 4,
 
 ```
 
-# Pacotes do R
+
+## 1. Introdução ao TurnOver
+
+- Escrever algo aqui sobre o TurnOver
 
 
-```{r pacotes_dados, warning = FALSE, message = FALSE}
+## 2. R e Rstudio
+
+
+<p align="center">
+  <img alt="decision_tree" src="images/r_and_rstudio.png" alt="drawing" width="400" height="200"/>
+  <br>
+    <em> https://bcrf.biochem.wisc.edu/all-tutorials/tutorial-materials-r-rstudio/ </em>
+</p>
+
+
+- Escrever algo aqui sobre o R e o Rstudio
+
+
+### 2.1. Pacotes utilizados
+
+
+```{r pacotes_utilizados}
+
 
 require(tidyverse)
 require(kableExtra)
+
+```
+
+### 2.2. Importação dos dados 
+
+- Escrever algo?
+
+```{r dados}
+
 
 dados <- read.csv(file = "data/turnover-data-set.csv")
 
 dados %>% 
   head %>% 
   kbl %>% 
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+  kable_classic(full_width = T, html_font = "Arial") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive", position = "center"))
+
 
 ```
 
+### 2.3. Glossário das variáveis
 
-# Introdução ao TurnOver
+- Colocar o glossário das variáveis aqui
+
+
+## 3. Análise Exploratória de Dados
+
+### 3.1. Estrutura dos dados
+
+
+<p align="center">
+  <img alt="decision_tree" src="images/exploratory.jpg" alt="drawing" width="600" height="400"/>
+  <br>
+  <em> <span>Foto por <a href="https://unsplash.com/@marcobias?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Marco Biasibetti</a> em <a href="https://unsplash.com/s/photos/explorator?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span> </em>
+</p>
+
+
+
+```{r}
+
+dados %>% 
+  glimpse
+
+```
+
