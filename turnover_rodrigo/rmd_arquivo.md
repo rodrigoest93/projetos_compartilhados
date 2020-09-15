@@ -831,11 +831,8 @@ dados %>%
 ``` r
 dados %>% 
   count(event) %>% 
-  mutate(event = 
-           case_when(
-             event == 0 ~ "Não",
-             TRUE ~ "Sim"
-           ),
+  mutate(event = case_when(event == 0 ~ "Não",
+                           TRUE ~ "Sim"),
          perc = n/sum(n)*100) %>% 
   ggplot(data = ., aes(x = event, y = perc, fill = event)) +
   geom_bar(stat = "identity", colour = "black") +
@@ -847,6 +844,21 @@ dados %>%
 ```
 
 <img src="rmd_arquivo_files/figure-gfm/unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+
+### 5.2. Variáveis numéricas
+
+``` r
+dados %>% 
+  mutate(event = factor(x = event)) %>% 
+  select_if(is.numeric) %>% 
+  pivot_longer(stag:novator, names_to = "variavel", values_to = "valor") %>% 
+  ggplot(data = ., aes(x = variavel, y = valor, fill = variavel)) +
+  geom_boxplot(colour = "black") +
+  theme(legend.position = "null") +
+  labs(x = "Variável", y = "Valor")
+```
+
+<img src="rmd_arquivo_files/figure-gfm/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
 ## 6\. Modelagem
 

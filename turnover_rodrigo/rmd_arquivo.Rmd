@@ -140,7 +140,23 @@ dados %>%
 ```
 
 
-### 5.2. 
+### 5.2. Variáveis numéricas
+
+
+```{r}
+
+dados %>% 
+  mutate(event = factor(x = event)) %>% 
+  select_if(is.numeric) %>% 
+  pivot_longer(stag:novator, names_to = "variavel", values_to = "valor") %>% 
+  ggplot(data = ., aes(x = variavel, y = valor, fill = variavel)) +
+  geom_boxplot(colour = "black") +
+  theme(legend.position = "null") +
+  labs(x = "Variável", y = "Valor")
+
+
+
+```
 
 
 
