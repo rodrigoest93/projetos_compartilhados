@@ -73,7 +73,18 @@ dados %>%
 
 ### 2.3. Glossário das variáveis
 
-- Colocar o glossário das variáveis aqui
+- **stag**: experiência (em anos ou meses)
+- **event**: demitido ou não
+- **gender**: gênero
+- **age**: idade
+- **industry**: tipo de indústria
+- **profession**: setor em que trabalha
+- **traffic**: meio em que o candidato se candidatou
+- **coach**: presença de um **buddy**
+- **head_gender**: gênero do seu **buddy**
+- **greywage**: algo relacionado com taxas para o governo
+- **way**: meio de transporte para o trabalho
+- **extraversion**, **independ**, **selfcontrol**, **anxiety**, **novator**: Escala de teste Big5 
 
 
 ## 3. Análise Exploratória de Dados
@@ -92,7 +103,9 @@ dados %>%
 ```{r}
 
 dados %>% 
-  glimpse
+  str %>% 
+  kbl %>% 
+  kable_classic(full_width = T, html_font = "Arial") %>% 
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive", position = "center"))
 
 ```
-
