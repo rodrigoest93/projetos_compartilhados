@@ -1,3 +1,6 @@
+# Glossário de variáveis
+
+
 - "stag": experiência (em anos ou meses)
 - "event": demitido ou não
 - "gender": gênero

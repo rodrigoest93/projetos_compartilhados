@@ -25,9 +25,27 @@ knitr::opts_chunk$set(fig.width = 8, fig.height = 4,
 
 - Escrever algo aqui sobre o TurnOver
 
+## 2. Entendimento do problema
 
-## 2. R e Rstudio
 
+- **stag**: experiência (em anos ou meses)
+- **event**: demitido ou não
+- **gender**: gênero
+- **age**: idade
+- **industry**: tipo de indústria
+- **profession**: setor em que trabalha
+- **traffic**: meio em que o candidato se candidatou
+- **coach**: presença de um **buddy**
+- **head_gender**: gênero do seu **buddy**
+- **greywage**: algo relacionado com taxas para o governo
+- **way**: meio de transporte para o trabalho
+- **extraversion**, **independ**, **selfcontrol**, **anxiety**, **novator**: Escala de teste Big5 
+
+
+- Escrever algo sobre o problema atual
+
+
+## 3. R e Rstudio
 
 <p align="center">
   <img alt="decision_tree" src="images/r_and_rstudio.png" alt="drawing" width="400" height="200"/>
@@ -36,24 +54,21 @@ knitr::opts_chunk$set(fig.width = 8, fig.height = 4,
 </p>
 
 
-
-
-
 - Escrever algo aqui sobre o R e o Rstudio
 
 
-### 2.1. Pacotes utilizados
+
+### 3.1. Pacotes utilizados
 
 
 ```{r pacotes_utilizados}
-
 
 require(tidyverse)
 require(kableExtra)
 
 ```
 
-### 2.2. Importação dos dados 
+### 3.2. Importação dos dados 
 
 - Escrever algo?
 
@@ -71,26 +86,8 @@ dados %>%
 
 ```
 
-### 2.3. Glossário das variáveis
 
-- **stag**: experiência (em anos ou meses)
-- **event**: demitido ou não
-- **gender**: gênero
-- **age**: idade
-- **industry**: tipo de indústria
-- **profession**: setor em que trabalha
-- **traffic**: meio em que o candidato se candidatou
-- **coach**: presença de um **buddy**
-- **head_gender**: gênero do seu **buddy**
-- **greywage**: algo relacionado com taxas para o governo
-- **way**: meio de transporte para o trabalho
-- **extraversion**, **independ**, **selfcontrol**, **anxiety**, **novator**: Escala de teste Big5 
-
-
-## 3. Análise Exploratória de Dados
-
-### 3.1. Estrutura dos dados
-
+## 4. Base de dados (estrutura)
 
 <p align="center">
   <img alt="decision_tree" src="images/exploratory.jpg" alt="drawing" width="600" height="400"/>
@@ -103,9 +100,12 @@ dados %>%
 ```{r}
 
 dados %>% 
-  str %>% 
-  kbl %>% 
-  kable_classic(full_width = T, html_font = "Arial") %>% 
-  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive", position = "center"))
+  glimpse
 
 ```
+
+## 5. EDA
+
+## 6. Modelagem
+
+## 7. Predição
