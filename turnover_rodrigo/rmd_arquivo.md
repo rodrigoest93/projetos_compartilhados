@@ -826,6 +826,28 @@ dados %>%
 
 ## 5\. EDA
 
+### 5.1. Proporção da variável `Event`
+
+``` r
+dados %>% 
+  count(event) %>% 
+  mutate(event = 
+           case_when(
+             event == 0 ~ "Não",
+             TRUE ~ "Sim"
+           ),
+         perc = n/sum(n)*100) %>% 
+  ggplot(data = ., aes(x = event, y = perc, fill = event)) +
+  geom_bar(stat = "identity", colour = "black") +
+  geom_text(aes(label = formato_real_graf(round(perc, 2))), vjust = -0.9, size = 5) +
+  theme(legend.position = "null") +
+  labs(x = "Event", y = "Percentual") +
+  scale_y_continuous(limits = c(0, 60)) +
+  scale_fill_brewer(palette = "Dark2")
+```
+
+<img src="rmd_arquivo_files/figure-gfm/unnamed-chunk-2-1.png" style="display: block; margin: auto;" />
+
 ## 6\. Modelagem
 
 ## 7\. Predição

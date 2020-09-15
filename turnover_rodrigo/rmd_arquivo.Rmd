@@ -14,9 +14,22 @@ always_allow_html: true
 
 ```{r setup, include = FALSE}
 
+require(tidyverse)
+require(kableExtra)
+
 knitr::opts_chunk$set(fig.width = 8, fig.height = 4,
                       echo = TRUE, warning = FALSE,
                       message = FALSE, fig.align = "center")
+
+theme_set(theme_minimal(14))
+
+formato_real_graf <- function(values, nsmall = 0) {
+  values %>%
+    as.numeric() %>%
+    format(nsmall = nsmall, decimal.mark = ",", big.mark = ".") %>%
+    str_trim()
+}
+
 
 ```
 
@@ -105,6 +118,32 @@ dados %>%
 ```
 
 ## 5. EDA
+
+### 5.1. Proporção da variável `Event`
+
+```{r}
+
+dados %>% 
+  count(event) %>% 
+  mutate(event = case_when(event == 0 ~ "Não",
+                           TRUE ~ "Sim"),
+         perc = n/sum(n)*100) %>% 
+  ggplot(data = ., aes(x = event, y = perc, fill = event)) +
+  geom_bar(stat = "identity", colour = "black") +
+  geom_text(aes(label = formato_real_graf(round(perc, 2))), vjust = -0.9, size = 5) +
+  theme(legend.position = "null") +
+  labs(x = "Event", y = "Percentual") +
+  scale_y_continuous(limits = c(0, 60)) +
+  scale_fill_brewer(palette = "Dark2")
+
+
+```
+
+
+### 5.2. 
+
+
+
 
 ## 6. Modelagem
 
