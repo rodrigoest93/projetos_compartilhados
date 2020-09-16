@@ -860,6 +860,42 @@ dados %>%
 
 <img src="rmd_arquivo_files/figure-gfm/unnamed-chunk-3-1.png" style="display: block; margin: auto;" />
 
+### 5.3. Variáveis categóricas
+
+``` r
+df_chr <- 
+  dados %>% 
+  mutate(event = as.character(x = event)) %>% 
+  select_if(is.character) %>% 
+  mutate(profession = ifelse(profession == "BusinessDevelopment",
+                             "BusinessDev.", profession))
+  
+
+rafs_geom_bar <- function(df, x){
+  
+  df %>% 
+    count(.data[[x]], sort = TRUE) %>% 
+    ggplot(data = ., aes(x = reorder(.data[[x]], n), y = n, 
+                         fill = .data[[x]])) +
+    geom_bar(stat = "identity") +
+    labs(y = "Quantidade", x = .data[[x]]) +
+    theme_minimal(14) +
+    theme(legend.position = "null") +
+    scale_fill_brewer(palette = "Set3") +
+    coord_flip()
+    
+}
+
+
+ys <- colnames(df_chr)
+
+all_plots <- map(ys, ~rafs_geom_bar(df = df_chr, x= .x))
+
+cowplot::plot_grid(plotlist = all_plots)
+```
+
+<img src="rmd_arquivo_files/figure-gfm/unnamed-chunk-4-1.png" style="display: block; margin: auto;" />
+
 ## 6\. Modelagem
 
 ## 7\. Predição
