@@ -166,10 +166,13 @@ dados %>%
 
 df_chr <- 
   dados %>% 
-  mutate(event = as.character(x = event)) %>% 
-  select_if(is.character) %>% 
-  mutate(profession = ifelse(profession == "BusinessDevelopment",
-                             "BusinessDev.", profession))
+  mutate(event = as.character(x = event),
+         event = case_when(event == 0 ~ "Não",
+                           TRUE ~ "Sim"),
+         profession = ifelse(profession == "BusinessDevelopment",
+                             "BusinessDev.", profession)
+         ) %>% 
+  select_if(is.character)
   
 
 rafs_geom_bar <- function(df, x){
@@ -178,7 +181,7 @@ rafs_geom_bar <- function(df, x){
     count(.data[[x]], sort = TRUE) %>% 
     ggplot(data = ., aes(x = reorder(.data[[x]], n), y = n, 
                          fill = .data[[x]])) +
-    geom_bar(stat = "identity") +
+    geom_bar(stat = "identity", colour = "black") +
     labs(y = "Quantidade", x = .data[[x]]) +
     theme_minimal(14) +
     theme(legend.position = "null") +
@@ -196,7 +199,65 @@ cowplot::plot_grid(plotlist = all_plots)
 
 ```
 
+### 5.4. Interação da variável `Event`
 
+
+#### 5.4.1. Variáveis quantitativas
+
+
+```{r}
+
+dados %>% 
+  select_if(is.numeric) %>% 
+  select(event, stag, everything()) %>% 
+  mutate(event = case_when(event == 0 ~ "Não",
+                           TRUE ~ "Sim")) %>% 
+  pivot_longer(stag:novator, names_to = "variavel", values_to = "valor") %>% 
+  ggplot(data = ., aes(x = variavel, y = valor, fill = variavel)) +
+  geom_boxplot(colour = "black") +
+  facet_wrap(~ event) + 
+  theme(legend.position = "null") +
+  labs(x = "Variável", y = "Valor")
+
+```
+
+
+
+#### 5.4.2. Variáveis categóricas
+
+```{r, fig.height = 8, fig.width = 10}
+
+
+rafs_geom_bar2 <- function(df, x, y){
+  
+  df %>% 
+    group_by(.data[[y]]) %>% 
+    count(.data[[x]], sort = TRUE) %>% 
+    ggplot(data = ., aes(x = reorder(.data[[x]], n), y = n, 
+                         fill = .data[[x]])) +
+    geom_bar(stat = "identity", colour = "black") +
+    facet_wrap(~ .data[[y]]) +
+    labs(y = "Quantidade", x = "", title = paste("Variável:", x)) +
+    theme_minimal(14) +
+    theme(legend.position = "null") +
+    scale_fill_brewer(palette = "Set3") +
+    coord_flip()
+    
+}
+
+ys1 <-
+  df_chr %>% 
+  select(-event) %>% 
+  names
+
+all_plots2 <- map2(.x = ys1, .y = "event", 
+                   .f = ~ rafs_geom_bar2(df = df_chr, 
+                                         x = .x,
+                                         y = .y))
+
+cowplot::plot_grid(plotlist = all_plots2, nrow = 4)
+
+```
 
 
 
