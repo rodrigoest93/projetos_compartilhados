@@ -8,61 +8,53 @@ Yaktocat](https://www.nvoip.com.br/wp-content/uploads/2018/09/turnover_face.png)
 
 ## 1\. Introdução ao TurnOver
 
-O Tunover é nada mais do que a taxa de rotatividade dos funcionários de
+O Tunover nada mais é do que a taxa de rotatividade dos funcionários de
 uma empresa. Mede o percentual de desligamento em um determinado período
-de tempo, geralmente fechado em períodos anuais. Este tipo de análise
-não mede só e unicamente o número bruto de desligamentos, e sim traz o
+de tempo, geralmente em fechamentos anuais. Este tipo de análise não
+mede só e unicamente o número bruto de desligamentos, mas também têm o
 intuito de explorar a fundo quais os fatores que influenciam neste
 processo.
 
 Através de variáveis operacionais e indicadores da empresa, utilizam-se
 diversas ferramentas que vão desde análises estatísticas até técnicas de
-Machine Learning. Tudo isso engrandece a análise e traz mais
+Machine Learning. Tudo isso engrandece o estudo e traz mais
 credibilidade para se falar deste assunto.
 
 Além de tudo isso, deve-se deixar claro alguns pontos relevantes para
 quem trabalha ou deseja trabalhar nesta vertente. Primeiro que o contato
 com outras áreas é fundamental para deixar a análise robusta e alinhada
 com o negócio que demanda a resolução: provável falar com gerentes,
-diretores, área de RH ou os Business Partiner dos setores da empresa.
-Segundo que esta vertente requer muita responsabilidade e princípio de
-confidencialidade, pois lida com informações completamente sensível,
+diretores, área de RH ou os Business Partner dos setores da empresa.
+Segundo que requer muita responsabilidade e princípio de
+confidencialidade, pois lida com informações completamente sensíveis,
 como salário, risco de desligamento por gestor, dentre outras.
 
 Por fim, o Turnover já traz resultados expressivos atualmente. Diversas
 empresas enriqueceram as informações sobre seus colaboradores a fim de
-analisá-las e exeutarem ações para fazer acontecer uma coisa que, mesmo
-que óbvia, não era muito prticada: funcionário feliz traz bons
-resultados\!
+analisá-las e executarem ações para fazer acontecer uma coisa que, mesmo
+que óbvia, não era muito praticada: **funcionário feliz traz bons
+resultados\!**
 
 ## 2\. Entendimento do problema
 
+Neste exemplo de causa, nós extraímos uma base de dados do portal Kaggle
+(completar as informações)\!\!\!, em que trata-se de uma análise de
+turnover demissional, o que se volta mais na movimentação de
+desligamentos dos colaboradores. Com isso, temos as seguintes variáveis:
+
   - **stag**: experiência (em anos ou meses)
-
   - **event**: demitido ou não
-
   - **gender**: gênero
-
   - **age**: idade
-
   - **industry**: tipo de indústria
-
   - **profession**: setor em que trabalha
-
   - **traffic**: meio em que o candidato se candidatou
-
   - **coach**: presença de um **buddy**
-
   - **head\_gender**: gênero do seu **buddy**
-
   - **greywage**: algo relacionado com taxas para o governo
-
   - **way**: meio de transporte para o trabalho
-
   - **extraversion**, **independ**, **selfcontrol**, **anxiety**,
     **novator**: Escala de teste Big5
-
-  - Escrever algo sobre o problema atual
 
 ## 3\. R e Rstudio
 
@@ -978,7 +970,3 @@ cowplot::plot_grid(plotlist = all_plots2, nrow = 4)
 ```
 
 <img src="rmd_arquivo_files/figure-gfm/unnamed-chunk-6-1.png" style="display: block; margin: auto;" />
-
-## 6\. Modelagem
-
-## 7\. Predição
